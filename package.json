@@ -1,0 +1,26 @@
+{
+  "name": "double-ratchet.js",
+  "version": "1.0.0",
+  "main": "lib/index",
+  "types": "lib/index",
+  "repository": "git@github.com:AnbionApps/double-ratchet.js.git",
+  "author": "TICE <contact@ticeapp.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "hkdf.js": "git+ssh://git@github.com:AnbionApps/hkdf.js.git",
+    "libsodium-wrappers": "^0.7.6",
+    "text-encoding-utf-8": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/libsodium-wrappers": "^0.7.6",
+    "@types/text-encoding-utf-8": "^1.0.1",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  }
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"MessageChain.d.ts","sourceRoot":"","sources":["../src/MessageChain.ts"],"names":[],"mappings":"AACA,OAAO,EAAC,KAAK,EAAU,MAAM,GAAG,CAAC;AAEjC,oBAAY,QAAQ,GAAG,UAAU,CAAC;AAElC,qBAAa,YAAY;IACrB,QAAQ,CAAC,eAAe,aAA6B;IACrD,QAAQ,CAAC,aAAa,aAA6B;IACnD,QAAQ,EAAE,QAAQ,GAAG,SAAS,CAAC;gBAEnB,QAAQ,CAAC,EAAE,QAAQ;IAKzB,cAAc,IAAI,OAAO,CAAC,KAAK,CAAC;CAUzC"}

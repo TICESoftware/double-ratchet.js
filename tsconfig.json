@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "./lib",
+        "declaration": true,
+        "declarationMap": true,
+        "target": "es6",
+        "sourceMap": true,
+        "strict": true,
+        "module": "commonjs",
+        "moduleResolution": "node"
+    },
+    "include": ["./src"],
+    "exclude": ["./lib","./node_modules"]
+}
