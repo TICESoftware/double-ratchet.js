@@ -1,5 +1,5 @@
-import {Bytes, DoubleRatchet, DRError, Message} from '.';
-import {ready as sodiumReady, from_hex} from 'libsodium-wrappers';
+import {Bytes, DoubleRatchet, DRError, Message, Header} from '.';
+import {ready as sodiumReady, from_hex, to_hex} from 'libsodium-wrappers';
 import {TextEncoder, TextDecoder} from 'text-encoding-utf-8';
 
 async function setUp(maxSkip?: number, maxCache?: number): Promise<{sharedSecret: Bytes, info: string, alice: DoubleRatchet, bob: DoubleRatchet}> {
@@ -197,4 +197,13 @@ test('reinitializeSession', async () => {
     } catch(error) {
         fail(error);
     }
+});
+
+test('encodeHeaderBytes', async () => {
+    await sodiumReady;
+    const pubKey = from_hex("0efd0d78c9ba26b39588848ddf69b02807fb85916c2b004d7af759f932544443");
+    const headerBytesShouldBe = "0efd0d78c9ba26b39588848ddf69b02807fb85916c2b004d7af759f93254444300000000499602d2000000024cb016ea";
+
+    const header = new Header(pubKey, 1234567890, 9876543210);
+    expect(to_hex(header.bytes)).toEqual(headerBytesShouldBe);
 });
