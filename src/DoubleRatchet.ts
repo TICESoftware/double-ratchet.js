@@ -15,6 +15,7 @@ import {
     MessageChain,
     MessageKey,
     MessageKeyCache,
+    MessageKeyCacheEntry,
     PublicKey,
     RootChain,
     SessionState,
@@ -63,6 +64,53 @@ export class DoubleRatchet {
         this.receivedMessageNumber = receivedMessageNumber;
         this.previousSendingChainLength = previousSendingChainLength;
         this.messageKeyCache = messageKeyCache;
+    }
+
+    static stringifyKeyPair(keyPair: KeyPair): string {
+        const item = { publicKey: Array.from(keyPair.publicKey), privateKey: Array.from(keyPair.privateKey), keyType: keyPair.keyType };
+        return JSON.stringify(item);
+    }
+
+    static parseKeyPair(stringified: string): KeyPair {
+        const item = JSON.parse(stringified);
+        return { publicKey: Uint8Array.from(item.publicKey), privateKey: Uint8Array.from(item.privateKey), keyType: item.keyType };
+    }
+
+    static sessionStateBlob(sessionState: SessionState): string {
+        const item = {
+            rootKey: Array.from(sessionState.rootKey),
+            rootChainKeyPair: DoubleRatchet.stringifyKeyPair(sessionState.rootChainKeyPair),
+            rootChainRemotePublicKey: sessionState.rootChainRemotePublicKey ? Array.from(sessionState.rootChainRemotePublicKey) : undefined,
+            sendingChainKey: sessionState.sendingChainKey !== undefined ? Array.from(sessionState.sendingChainKey) : undefined,
+            receivingChainKey: sessionState.receivingChainKey !== undefined ? Array.from(sessionState.receivingChainKey) : undefined,
+            sendMessageNumber: sessionState.sendMessageNumber,
+            receivedMessageNumber: sessionState.receivedMessageNumber,
+            previousSendingChainLength: sessionState.previousSendingChainLength,
+            messageKeyCacheState: sessionState.messageKeyCacheState.map((msg) => ({ publicKey: Array.from(msg.publicKey), messageNumber: msg.messageNumber, messageKey: Array.from(msg.messageKey) })),
+            info: sessionState.info,
+            maxSkip: sessionState.maxSkip,
+            maxCache: sessionState.maxCache,
+        };
+        return JSON.stringify(item);
+    }
+
+    static initSessionStateBlob(blob : string): DoubleRatchet {
+        const item = JSON.parse(blob);
+        const sessionState = {
+            rootKey: Uint8Array.from(item.rootKey),
+            rootChainKeyPair: DoubleRatchet.parseKeyPair(item.rootChainKeyPair),
+            rootChainRemotePublicKey: item.rootChainRemotePublicKey ? Uint8Array.from(item.rootChainRemotePublicKey) : undefined,
+            sendingChainKey: item.sendingChainKey !== undefined ? Uint8Array.from(item.sendingChainKey) : undefined,
+            receivingChainKey: item.receivingChainKey !== undefined ? Uint8Array.from(item.receivingChainKey) : undefined,
+            sendMessageNumber: item.sendMessageNumber,
+            receivedMessageNumber: item.receivedMessageNumber,
+            previousSendingChainLength: item.previousSendingChainLength,
+            messageKeyCacheState: item.messageKeyCacheState.map((msg: MessageKeyCacheEntry) => ({ publicKey: Uint8Array.from(msg.publicKey), messageNumber: msg.messageNumber, messageKey: Uint8Array.from(msg.messageKey) })),
+            info: item.info,
+            maxSkip: item.maxSkip,
+            maxCache: item.maxCache,
+        };
+        return DoubleRatchet.initFrom(sessionState);
     }
 
     static async init(info: string, maxCache: number, maxSkip: number, sharedSecret: Bytes, remotePublicKey?: PublicKey, keyPair?: KeyPair): Promise<DoubleRatchet> {
