@@ -1362,9 +1362,9 @@ has@^1.0.1, has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-"hkdf.js@git+ssh://git@github.com:AnbionApps/hkdf.js.git":
+"hkdf.js@git+ssh://git@github.com:TICESoftware/hkdf.js.git":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:AnbionApps/hkdf.js.git#47d46e07d2ffc086a24c72c67750e4e5c5a83d19"
+  resolved "git+ssh://git@github.com:TICESoftware/hkdf.js.git#47d46e07d2ffc086a24c72c67750e4e5c5a83d19"
   dependencies:
     libsodium-wrappers "^0.7.6"
     text-encoding-utf-8 "^1.0.2"

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "lib/index",
   "types": "lib/index",
-  "repository": "git@github.com:AnbionApps/double-ratchet.js.git",
+  "repository": "git@github.com:TICESoftware/double-ratchet.js.git",
   "author": "TICE <contact@ticeapp.com>",
   "license": "MIT",
   "private": true,
@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "hkdf.js": "git+ssh://git@github.com:AnbionApps/hkdf.js.git",
+    "hkdf.js": "git+ssh://git@github.com:TICESoftware/hkdf.js.git",
     "libsodium-wrappers": "^0.7.6",
     "text-encoding-utf-8": "^1.0.2"
   },
