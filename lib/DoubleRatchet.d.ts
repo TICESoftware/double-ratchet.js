@@ -12,6 +12,10 @@ export declare class DoubleRatchet {
     publicKey(): PublicKey;
     readonly sessionState: SessionState;
     private constructor();
+    static stringifyKeyPair(keyPair: KeyPair): string;
+    static parseKeyPair(stringified: string): KeyPair;
+    static sessionStateBlop(dr: SessionState): string;
+    static initSessionStateBlop(storedItem: string): DoubleRatchet;
     static init(info: string, maxCache: number, maxSkip: number, sharedSecret: Bytes, remotePublicKey?: PublicKey, keyPair?: KeyPair): Promise<DoubleRatchet>;
     static initFrom(sessionState: SessionState): DoubleRatchet;
     encrypt(plaintext: Bytes, associatedData?: Bytes): Promise<Message>;
