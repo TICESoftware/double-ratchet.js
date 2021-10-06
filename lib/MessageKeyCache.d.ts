@@ -14,7 +14,7 @@ export declare class MessageKeyCache {
     skippedMessageKeys: MessageKeyDict[];
     messageKeyCache: MessageIndex[];
     readonly maxCache: number;
-    readonly cacheState: MessageKeyCacheState;
+    get cacheState(): MessageKeyCacheState;
     constructor(maxCache: number, cacheState?: MessageKeyCacheState);
     add(messageKey: MessageKey, messageNumber: number, publicKey: PublicKey): void;
     getMessageKey(messageNumber: number, publicKey: PublicKey): MessageKey | undefined;

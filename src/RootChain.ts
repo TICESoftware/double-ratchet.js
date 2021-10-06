@@ -1,5 +1,5 @@
 import {KeyPair} from 'libsodium-wrappers';
-import {deriveHKDFKey} from 'hkdf.js';
+import {deriveHKDFKey} from 'sodium-hkdf';
 import {Bytes, PublicKey, ChainKey, DRError, Side, sessionKeyPair} from '.';
 
 export type RootKey = Uint8Array;

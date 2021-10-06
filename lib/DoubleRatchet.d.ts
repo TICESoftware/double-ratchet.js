@@ -10,7 +10,7 @@ export declare class DoubleRatchet {
     private previousSendingChainLength;
     private messageKeyCache;
     publicKey(): PublicKey;
-    readonly sessionState: SessionState;
+    get sessionState(): SessionState;
     private constructor();
     static stringifyKeyPair(keyPair: KeyPair): string;
     static parseKeyPair(stringified: string): KeyPair;

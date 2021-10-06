@@ -1,6 +1,6 @@
 {
   "name": "double-ratchet-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index",
   "types": "lib/index",
   "repository": {
@@ -18,7 +18,7 @@
     "build": "tsc --build"
   },
   "dependencies": {
-    "libsodium-wrappers": "^0.7.6",
+    "libsodium-wrappers": "^0.7.9",
     "sodium-hkdf": "^1.0.0",
     "text-encoding-utf-8": "^1.0.2"
   },
