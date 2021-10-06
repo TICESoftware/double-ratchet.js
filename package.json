@@ -1,5 +1,5 @@
 {
-  "name": "double-ratchet.js",
+  "name": "double-ratchet",
   "version": "1.0.0",
   "main": "lib/index",
   "types": "lib/index",
@@ -18,8 +18,8 @@
     "build": "tsc --build"
   },
   "dependencies": {
-    "hkdf.js": "git+ssh://git@github.com:TICESoftware/hkdf.js.git",
     "libsodium-wrappers": "^0.7.6",
+    "sodium-hkdf": "^1.0.0",
     "text-encoding-utf-8": "^1.0.2"
   },
   "devDependencies": {
