@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "main": "lib/index",
   "types": "lib/index",
-  "repository": "git@github.com:TICESoftware/double-ratchet.js.git",
-  "author": "TICE <contact@ticeapp.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TICESoftware/double-ratchet.js.git"
+  },
+  "author": {
+    "name": "TICE Software UG (haftungsbeschraenkt)",
+    "email": "contact@tice-software.com",
+    "url": "https://tice.software"
+  },
   "license": "MIT",
-  "private": true,
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc --build"
   },
   "dependencies": {
     "hkdf.js": "git+ssh://git@github.com:TICESoftware/hkdf.js.git",
