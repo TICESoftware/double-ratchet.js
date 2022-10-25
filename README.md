@@ -1,6 +1,6 @@
-# DoubleRatchet
+# double-ratchet.js
 
-Implementation of the [Double Ratchet](https://www.signal.org/docs/specifications/doubleratchet/#external-functions) protocol in Swift. The cryptographic operations are provided by [libsodium](https://github.com/jedisct1/libsodium) entirely.
+Implementation of the [Double Ratchet](https://www.signal.org/docs/specifications/doubleratchet/#external-functions) protocol in TypeScript. The cryptographic operations are provided by [libsodium](https://github.com/jedisct1/libsodium) entirely.
 
 ## Installation
 
@@ -35,3 +35,7 @@ const decryptedMessage = await bob.decrypt(encryptedMessage);
 
 console.log(String.fromCharCode(...decryptedMessage)); // Hello, Bob!
 ```
+
+## License
+
+This library is licensed under [MIT license](LICENSE).
