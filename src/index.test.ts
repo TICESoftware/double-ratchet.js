@@ -119,7 +119,7 @@ test('exceedMaxSkipMessages', async () => {
         const encryptedMessage = await alice.encrypt(messageBytes);
         await bob.decrypt(encryptedMessage);
         fail();
-    } catch(error) {
+    } catch(error: any) {
         if (error.message != DRError.exceedMaxSkip) {
             fail();
         }
@@ -147,7 +147,7 @@ test('exceedMaxCacheMessageKeys', async () => {
 
     try {
         await bob.decrypt(delayedMessages[0]);
-    } catch(error) {
+    } catch(error: any) {
         if (error.message != DRError.discardOldMessage) {
             fail(error);
         }
